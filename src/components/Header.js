@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 class Header extends Component {
-
+ 
     renderLink() {
         const status = this.props.isAuthenticated;
         if (status !== null && status) {
