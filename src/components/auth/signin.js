@@ -11,8 +11,8 @@ class Signin extends Component {
         this.props.signInUser({ email, password });
     }
     renderError() {
-        if (this.props.errorMessage != null &&
-            this.props.errorMessage != '') {
+        if (this.props.errorMessage !== null &&
+            this.props.errorMessage !== '') {
             return (
                 <div className="alert alert-danger">Oh dear! {this.props.errorMessage}</div>
             )

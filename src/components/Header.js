@@ -5,7 +5,7 @@ class Header extends Component {
 
     renderLink() {
         const status = this.props.isAuthenticated;
-        if (status != null && status) {
+        if (status !== null && status) {
             return (
                 <div>
                     <Link className="nav-item nav-link active" to="/feature">Feature

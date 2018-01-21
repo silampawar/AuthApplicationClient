@@ -12,8 +12,8 @@ class Signup extends Component {
 
     }
     renderError() {
-        if (this.props.errorMessage != null &&
-            this.props.errorMessage != '') {
+        if (this.props.errorMessage !== null &&
+            this.props.errorMessage !== '') {
             return (
                 <div className="alert alert-danger">Oh dear! {this.props.errorMessage}</div>
             )
