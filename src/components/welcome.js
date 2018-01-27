@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 class Feature extends Component {
 
   renderDetails(){
-    if(this.props.isAuthenticated){
+    const status = this.props.isAuthenticated;
+    if(status!==null && status){
       return(
         <div><h3 className="form-signin-subheading">You are already signed in, would you like to signout?</h3>
 			  <Link className="btn btn-lg btn-primary btn-block" to="/signout">Signout</Link>  			
@@ -16,10 +17,11 @@ class Feature extends Component {
          </div>
       );
     }else{
+      return(
       <div><h3 className="form-signin-subheading">What would you like to do?</h3>
 			  <Link className="btn btn-lg btn-primary btn-block" to="/signin">Signin</Link>
         <Link className="btn btn-lg btn-primary btn-block" to="/signin">Singup</Link>  			
-		     </div>
+		     </div>);
     }
   }
 

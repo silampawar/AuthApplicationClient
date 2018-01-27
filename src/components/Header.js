@@ -14,7 +14,7 @@ class Header extends Component {
             </Link>
                 </div>
             )
-        }
+        }else{
         return (
             <div>
                 <Link className="nav-item nav-link active" to="/signin">Signin
@@ -23,7 +23,7 @@ class Header extends Component {
              </Link>
             </div>
         )
-
+    }
 
     }
 

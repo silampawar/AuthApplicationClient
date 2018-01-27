@@ -70,3 +70,12 @@ export function FetchMessage() {
         });
     }
 }
+
+export function clearError() {
+   
+    return function (dispatch) {
+
+        dispatch({ type: 'CLEAR_ERR' });
+    
+    }
+}

@@ -9,6 +9,9 @@ export function authReducer (state={}, action){
         case 'AUTH_ERR':
             return {...state,authenticated:false,error:action.payload};    
         
+        case 'CLEAR_ERR':
+            return {...state,error:''};    
+        
     }
     return state;
 }

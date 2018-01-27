@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 
 class Signup extends Component {
 
+    componentWillUnmount(){
+        this.props.clearError();
+    }
+
     handleSubmitForm({ email, password, passwordConfirm }) {
 
         this.props.signUpUser({ email, password });
@@ -13,7 +17,7 @@ class Signup extends Component {
     }
     renderError() {
         if (this.props.errorMessage !== null &&
-            this.props.errorMessage !== '') {
+            this.props.errorMessage) {
             return (
                 <div className="alert alert-danger">Oh dear! {this.props.errorMessage}</div>
             )

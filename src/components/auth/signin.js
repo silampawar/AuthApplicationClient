@@ -6,13 +6,38 @@ import { connect } from 'react-redux';
 
 class Signin extends Component {
 
-    handleSubmitForm({ email, password }) {
+    componentWillUnmount(){
+        this.props.clearError();
+    }
 
+    componentWillMount(){
+        this.setState({
+            isLoading:false
+        });
+    }
+
+    handleSubmitForm({ email, password }) {
+        this.setState({
+            isLoading:true
+        });
+        
         this.props.signInUser({ email, password });
     }
+
+renderLoading() {
+   
+    if (this.state !== null && this.state.isLoading !== null &&
+        this.state.isLoading && !(this.props.errorMessage !== null &&
+            this.props.errorMessage)) {
+        return (
+            <div className="alert alert-danger">Please wait ... loading</div>
+        )
+    }
+
+}
     renderError() {
         if (this.props.errorMessage !== null &&
-            this.props.errorMessage !== '') {
+            this.props.errorMessage) {
             return (
                 <div className="alert alert-danger">Oh dear! {this.props.errorMessage}</div>
             )
@@ -33,9 +58,10 @@ class Signin extends Component {
     };
 
     renderSigninForm() {
+     
         if (this.props.isAuthenticated) {
             return (<div>
-                <h3 className="form-signin-heading">Welcome Back! You have arealdy signed in</h3>
+                <h3 className="form-signin-heading">Welcome Back! You have already signed in</h3>
                 <hr className="colorgraph" />
             </div>
             )
@@ -47,6 +73,7 @@ class Signin extends Component {
                 <Field component={this.renderField} type="email" name="email" label="Email" className="form-control" />
                 <Field component={this.renderField} type="password" name="password" label="Password" className="form-control" />
                 {this.renderError()}
+                {this.renderLoading()}
                 <button className="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
             </div>
             );
